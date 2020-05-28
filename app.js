@@ -56,6 +56,7 @@ inquirer
         }
 
     ])
+    //does not output entire response
     .then(function(response) {
         console.log(response)
 
