@@ -37,15 +37,17 @@ inquirer
   .then(function(data) {
     //   console.log(JSON.stringify(data.role))
     let newRole = JSON.stringify(data.role)
+    console.log(newRole)
     let specific = ""
-    if (newRole === "Manager") {
+    if (newRole = "Manager") {
       specific = "Office Number"
-    } if (newRole === "Engineer") {
+    } if (newRole = "Engineer") {
         specific = "GitHub username"
     }
     else {
         specific = "school name"
     }
+    // console.log(specific)
     inquirer.prompt([
         {
             type: "input",
