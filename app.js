@@ -10,7 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 inquirer
   .prompt([
     {
@@ -33,10 +32,29 @@ inquirer
       message: "Please select the team member's role.",
       name: "role",
       choices: ["Manager", "Engineer", "Intern"]
-    }
+    },
+    {
+      type: "input",
+      message: "What is your office Number?",
+      name: "officeNumber",
+      when: (answers) => answers.role === "Manager",
+     }
   ])
   .then(function(data) {
     // if role = manager, run manager class
+    // if (data.role === "Manager") { 
+    //   inquirer.prompt([
+    // {
+    //     type: "input",
+    //     message: "What is your office number?",
+    //     name: "officeNumber"
+    //   },
+    // ]).then (function(newData) {
+    //   // let manager = newData
+    //   console.log(newData)
+    // })
+
+    // }
     // if role = internm, run intern class
     // if role = engineer, run engineer class
     console.log(data)
