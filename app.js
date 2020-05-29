@@ -54,6 +54,12 @@ inquirer
   ])
   .then(function(data) {
     console.log(data)
+    //store data into object
+    //ask if user wants to add another employee?
+    // if yes, re-run inquirer.prompt
+    // if no, --- 'render' function
+    //store data into an array of object based on role type. 
+
   });
 
 // Write code to use inquirer to gather information about the development team members,
