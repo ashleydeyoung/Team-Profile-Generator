@@ -35,28 +35,24 @@ inquirer
     },
     {
       type: "input",
-      message: "What is your office Number?",
+      message: "What is the manager's office number?",
       name: "officeNumber",
       when: (answers) => answers.role === "Manager",
+     },
+     {
+      type: "input",
+      message: "What is the intern's school name?",
+      name: "school",
+      when: (answers) => answers.role === "Intern",
+     },
+     {
+      type: "input",
+      message: "What is the engineer's github username?",
+      name: "github",
+      when: (answers) => answers.role === "Engineer",
      }
   ])
   .then(function(data) {
-    // if role = manager, run manager class
-    // if (data.role === "Manager") { 
-    //   inquirer.prompt([
-    // {
-    //     type: "input",
-    //     message: "What is your office number?",
-    //     name: "officeNumber"
-    //   },
-    // ]).then (function(newData) {
-    //   // let manager = newData
-    //   console.log(newData)
-    // })
-
-    // }
-    // if role = internm, run intern class
-    // if role = engineer, run engineer class
     console.log(data)
   });
 
