@@ -36,32 +36,10 @@ inquirer
     }
   ])
   .then(function(data) {
-    //   console.log(JSON.stringify(data.role))
-    let newRole = JSON.stringify(data.role)
-    console.log(newRole)
-    let specific = ""
-    if (newRole = "Manager") {
-      specific = "Office Number"
-    } if (newRole = "Engineer") {
-        specific = "GitHub username"
-    }
-    else {
-        specific = "school name"
-    }
-    // console.log(specific)
-    inquirer.prompt([
-        {
-            type: "input",
-            message: "What is the team member's " + specific + "?",
-            name: "specificInfo"
-        }
-
-    ])
-    //does not output entire response
-    .then(function(response) {
-        console.log(response)
-
-    })
+    // if role = manager, run manager class
+    // if role = internm, run intern class
+    // if role = engineer, run engineer class
+    console.log(data)
   });
 
 // Write code to use inquirer to gather information about the development team members,
