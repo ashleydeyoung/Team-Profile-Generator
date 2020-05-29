@@ -30,7 +30,7 @@ inquirer
     },
     {
       type: "list",
-      message: "Please chose the team member's role.",
+      message: "Please select the team member's role.",
       name: "role",
       choices: ["Manager", "Engineer", "Intern"]
     }
