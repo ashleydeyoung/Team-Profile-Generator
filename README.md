@@ -68,6 +68,12 @@
   $ code .
   ``` 
 
+  The following is an example of HTML in browser:
+
+  ![HTML in browswer preview](Assets/HTML-preview.png)
+
+
+
 
   ## Demo of Application
   ![Command line questions Preview](Assets/command-line-preview.gif)
