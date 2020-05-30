@@ -10,6 +10,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const employees = [];
+makeEmployee();
+
+function makeEmployee() {
+
 inquirer
   .prompt([
     {
@@ -37,30 +42,59 @@ inquirer
       type: "input",
       message: "What is the manager's office number?",
       name: "officeNumber",
-      when: (answers) => answers.role === "Manager",
+      when: (employee) => employee.role === "Manager",
      },
      {
       type: "input",
       message: "What is the intern's school name?",
       name: "school",
-      when: (answers) => answers.role === "Intern",
+      when: (employee) => employee.role === "Intern",
      },
      {
       type: "input",
       message: "What is the engineer's github username?",
       name: "github",
-      when: (answers) => answers.role === "Engineer",
+      when: (employee) => employee.role === "Engineer",
      }
   ])
-  .then(function(data) {
-    console.log(data)
-    //store data into object
+  .then(function(employee) {
+    
+    if (employee.role === "Intern") {
+      employees.push(new Intern(employee.name, employee.id, employee.email, employee.school))
+  } else if (employee.role === "Engineer") {
+      employees.push(new Engineer(employee.name, employee.id, employee.email, employee.github))
+  } else if (employee.role === "Manager") {
+      employees.push(new Manager(employee.name, employee.id, employee.email, employee.officeNumber))
+  }
+   
+    inquirer.prompt([
+      {
+        type: "confirm",
+        message: "Would you like to add another employee?",
+        name: "choice",
+        default: true
+      }
+    ]).then(function(val) {
+      if(val.choice) {
+        makeEmployee()
+      }else {
+        console.log(employees)
+        const html = render(employees) 
+        writeToFile(html)
+      }
+    })
+    // console.log(teammate)
+    //store data into "employees" object
     //ask if user wants to add another employee?
     // if yes, re-run inquirer.prompt
     // if no, --- 'render' function
     //store data into an array of object based on role type. 
-
+    
+    //render(employees);
+    
   });
+
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -74,7 +108,18 @@ inquirer
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
+function writeToFile(html) {
+    
+  fs.writeFile(outputPath, html, function(err) {
 
+      if (err) {
+        return console.log(err);
+      }
+    
+      console.log("Success! team.html created!");
+    
+    })
+};
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
