@@ -2,7 +2,7 @@
 
   ## Description
   
-  This project is an team generator command line application that cretes an HTML site based on user information about the team.
+  This project is an team generator command line application that creates an HTML page based on user information about their team.
 
   ## User Story
 
@@ -18,7 +18,7 @@
   
   * [Installation](#installation)
 
-  * [Test](#test)
+  * [Tests](#tests)
   
   * [Usage](#usage)
   
@@ -48,30 +48,35 @@
   To run the application from the command line please run the following command:
 
   ```
-  node index.js
+  node app.js
   ``` 
   
-  Following the command, the user will be instructed to answer questions regarding their project. Following the last question, the data input is written in the generate README file and the user is notifed.
+  Following the command, the user will be instructed to answer questions regarding their team.
 
+  ![Command line questions preview](Assets/questions-preview.png)
 
-  ![Command line success preview](Assets/success-preview.png)
+  
+  Once the user has submitted information on all employees, the data input is written in the generate HTML file and the user is notifed.
+
+  ![Generated HTML preview](Assets/success-preview.png)
   
 
-  The user can now view the generated README file by running the following command:
+  The user can now view the generated HTML in the output directory:
 
   ```
-  code .
+  $ cd output/
+  $ code .
   ``` 
 
 
   ## Demo of Application
-  ![Command line questions Preview](Assets/questions-preview.gif)
+  ![Command line questions Preview](Assets/command-line-preview.gif)
 
   *demo of command to run application and generated questions*
 
-  ![Generated README Preview](Assets/generated-README.gif)
+  ![Generated HTML Preview](Assets/html-preview.gif)
   
-  *demo of generated README from command line*
+  *demo of generated HTML from command line*
 
 
   ## Questions
